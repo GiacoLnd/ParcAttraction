@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des attractions{% endblock %}
+
+{% block body %}
+<h1 class="text-center">Attractions :</h1>
+    {% for attraction in attractions %}
+        <div class="d-flex flex-wrap justify-content-center ">
+            <p class="p-2">Nom : {{ attraction.nom}}</p>
+            <p class="p-2">Description : {{ attraction.description}}</p>
+            <p class="p-2">Capacitée maximale : {{ attraction.capacite}}</p>
+            <p class="p-2">Durée : {{ attraction.duree}}</p>
+            <p class="p-2">Categorie : {{ attraction.categorieAttraction.categoryName}}</p>
+        </div>
+    {% endfor %}
+<h1 class="text-center">Avis : </h1>
+    {% for element in avis %}
+        <div class="d-flex flex-wrap justify-content-center">
+            <p class="p-2">Note : {{ element.note}}
+            Commentaire : {{ element.commentaire}}
+            Visiteur : {{ element.visiteur.prenom}} {{ element.visiteur.nom}}</p>
+        </div>
+    {% endfor %}
+{% endblock %}
